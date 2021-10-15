@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_height">52dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_170">170dp</dimen>
+    <dimen name="text_h2">44sp</dimen>
+    <dimen name="text_43">28sp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="button_size">65dp</dimen>
+    <dimen name="dimen_25">25dp</dimen>
+</resources>
