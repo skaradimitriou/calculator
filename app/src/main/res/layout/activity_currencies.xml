@@ -11,23 +11,145 @@
         android:id="@+id/currencies_rounded_bg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="120dp"
+        android:paddingBottom="@dimen/dimen_25"
         android:background="@drawable/round_corners_bottom"
-        android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/convert_description"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/currencies_screen_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp"
         android:gravity="center_horizontal"
         android:padding="@dimen/dimen_10"
-        android:textSize="16sp"
         android:text="@string/currency_converter"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/upper_card_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/card_bg"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_marginEnd="@dimen/dimen_10"
+        android:background="@drawable/round_corners"
+        android:backgroundTint="@color/calculator_bg"
+        app:layout_constraintBottom_toBottomOf="@id/start_currency_value"
+        app:layout_constraintTop_toBottomOf="@id/currencies_screen_title" />
+
+    <TextView
+        android:id="@+id/starting_currency"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10"
+        android:background="@drawable/round_corners"
+        android:padding="@dimen/dimen_10"
+        android:text="@string/eur"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/upper_card_bg"
+        app:layout_constraintStart_toStartOf="@id/upper_card_bg"
+        app:layout_constraintTop_toTopOf="@id/upper_card_bg" />
+
+    <TextView
+        android:id="@+id/start_currency_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10"
+        android:background="@drawable/round_corners"
+        android:gravity="end"
+        android:padding="@dimen/dimen_10"
+        android:text="@string/dummy_result"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/upper_card_bg"
+        app:layout_constraintStart_toStartOf="@id/upper_card_bg"
+        app:layout_constraintTop_toBottomOf="@id/starting_currency" />
+
+    <View
+        android:id="@+id/second_card_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/card_bg"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_marginEnd="@dimen/dimen_10"
+        android:background="@drawable/round_corners"
+        android:backgroundTint="@color/calculator_bg"
+        android:layout_marginTop="@dimen/dimen_25"
+        app:layout_constraintBottom_toBottomOf="@id/ending_currency_value"
+        app:layout_constraintTop_toBottomOf="@id/upper_card_bg" />
+
+    <TextView
+        android:id="@+id/ending_currency"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10"
+        android:background="@drawable/round_corners"
+        android:padding="@dimen/dimen_10"
+        android:text="@string/usd"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/second_card_bg"
+        app:layout_constraintStart_toStartOf="@id/second_card_bg"
+        app:layout_constraintTop_toTopOf="@id/second_card_bg" />
+
+    <TextView
+        android:id="@+id/ending_currency_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10"
+        android:background="@drawable/round_corners"
+        android:gravity="end"
+        android:padding="@dimen/dimen_10"
+        android:text="@string/dummy_result"
+        android:textSize="20sp"
+        android:textColor="@color/grey_darkest"
+        app:layout_constraintBottom_toBottomOf="@id/second_card_bg"
+        app:layout_constraintEnd_toEndOf="@id/second_card_bg"
+        app:layout_constraintStart_toStartOf="@id/second_card_bg"
+        app:layout_constraintTop_toBottomOf="@id/ending_currency" />
+
+    <Button
+        android:id="@+id/convert_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginBottom="@dimen/dimen_25"
+        android:backgroundTint="@color/calculator_blue_dark"
+        android:text="@string/convert"
+        android:textAllCaps="false"
+        android:layout_margin="@dimen/dimen_10"
+        app:layout_constraintTop_toBottomOf="@id/second_card_bg" />
+
+    <TextView
+        android:id="@+id/convert_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:textSize="20sp"
+        android:textColor="@color/grey_darkest"
+        android:text="@string/dummy_equation"
+        app:layout_constraintTop_toBottomOf="@id/convert_btn"/>
+
+    <TextView
+        android:id="@+id/convert_start_currency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_10"
+        android:textSize="20sp"
+        android:textColor="@color/grey_darkest"
+        android:text="@string/dummy_eq_eur"
+        app:layout_constraintTop_toBottomOf="@id/convert_description"/>
+
+    <TextView
+        android:id="@+id/convert_end_currency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_10"
+        android:textSize="20sp"
+        android:textColor="@color/grey_darkest"
+        android:text="@string/dummy_eq_usd"
+        app:layout_constraintTop_toBottomOf="@id/convert_start_currency"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

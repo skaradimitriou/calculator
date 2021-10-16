@@ -23,4 +23,10 @@
     <string name="zero">0</string>
     <string name="dot">.</string>
     <string name="equals">=</string>
+    <string name="eur">EUR</string>
+    <string name="usd">USD ($)</string>
+    <string name="convert">Convert</string>
+    <string name="dummy_equation">14,500.00 Euros = <b>16,752.216 US Dollars</b></string>
+    <string name="dummy_eq_eur">1 EUR = 1.15533 USD</string>
+    <string name="dummy_eq_usd">1 USD = 0.865557 EUR</string>
 </resources>

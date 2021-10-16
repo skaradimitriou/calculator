@@ -254,7 +254,7 @@
 
     <Button
         android:id="@+id/btn_twenty"
-        style="@style/calculator_operation_btn"
+        style="@style/calculator_equals_btn"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"

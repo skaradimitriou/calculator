@@ -21,8 +21,9 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
          */
 
         currencies_btn.setOnClickListener {
+            val amount = calculator_result.text.toString()
             startActivity(Intent(this,CurrenciesActivity::class.java).also {
-                it.putExtra("AMOUNT",13500)
+                it.putExtra("AMOUNT",amount)
             })
         }
     }
