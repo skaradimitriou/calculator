@@ -24,18 +24,28 @@
         <item name="android:backgroundTint">@color/grey_light</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/grey_darkest</item>
+        <item name="android:onClick">numberAction</item>
     </style>
 
     <style name="calculator_operation_btn" parent="TextAppearance.AppCompat.Button">
         <item name="android:backgroundTint">@color/grey_darkest</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:onClick">operationAction</item>
     </style>
 
     <style name="calculator_equals_btn" parent="TextAppearance.AppCompat.Button">
         <item name="android:backgroundTint">@color/orange</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:onClick">equalsAction</item>
+    </style>
+
+    <style name="calculator_ac_btn" parent="TextAppearance.AppCompat.Button">
+        <item name="android:backgroundTint">@color/grey_dark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/grey_darkest</item>
+        <item name="android:onClick">allClearAction</item>
     </style>
 
 </resources>
