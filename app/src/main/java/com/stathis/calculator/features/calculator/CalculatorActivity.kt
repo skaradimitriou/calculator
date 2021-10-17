@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.calculator.R
 import com.stathis.calculator.abstraction.SimplifiedActivity
@@ -27,9 +28,15 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
                 it.putExtra("AMOUNT", amount)
             })
         }
+
+        viewModel.result.observe(this, Observer{
+            calculator_result.text = it
+        })
     }
 
-    override fun stopOps() {}
+    override fun stopOps() {
+        viewModel.result.removeObservers(this)
+    }
 
     fun allClearAction(view: View) {
         calculator_operations.text = resources.getString(R.string.empty)
@@ -63,7 +70,8 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
     }
 
     fun equalsAction(view: View) {
-        calculator_result.text = calculator_operations.text
+        val operations = calculator_operations.text.toString()
+        viewModel.calculateResults(operations)
     }
 
     fun backspaceAction(view: View) {
