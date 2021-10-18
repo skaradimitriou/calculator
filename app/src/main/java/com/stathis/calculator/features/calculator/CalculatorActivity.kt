@@ -29,7 +29,7 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
             })
         }
 
-        viewModel.result.observe(this, Observer{
+        viewModel.result.observe(this, Observer {
             calculator_result.text = it
         })
     }
@@ -44,8 +44,8 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
     }
 
     fun numberAction(view: View) {
-        when (view) {
-            is Button -> {
+        when (view is Button) {
+            true -> {
                 if (view.text == ".") {
                     if (decimalEnabled) {
                         calculator_operations.append(view.text)
@@ -62,9 +62,25 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
     fun operationAction(view: View) {
         when (view is Button && operationEnabled) {
             true -> {
-                calculator_operations.append(view.text)
-                operationEnabled = false
-                decimalEnabled = true
+                if(calculator_result.text.isNotEmpty()){
+                    calculator_operations.text = calculator_result.text
+                    calculator_result.text = ""
+                    calculator_operations.append(view.text)
+                    operationEnabled = false
+                    decimalEnabled = true
+                } else {
+                    when (calculator_operations.text.contains('X') ||
+                            calculator_operations.text.contains('/') ||
+                            calculator_operations.text.contains('-') ||
+                            calculator_operations.text.contains('+')) {
+                        true -> Unit
+                        false -> {
+                            calculator_operations.append(view.text)
+                            operationEnabled = false
+                            decimalEnabled = true
+                        }
+                    }
+                }
             }
         }
     }
