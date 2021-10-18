@@ -12,22 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
-        android:singleLine="true"
         android:padding="@dimen/dimen_16"
-        tools:text="@string/dummy_operation"
+        android:singleLine="true"
         android:textSize="@dimen/text_43"
-        app:layout_constraintBottom_toTopOf="@id/calculator_result" />
+        app:layout_constraintBottom_toTopOf="@id/calculator_result"
+        tools:text="@string/dummy_operation" />
 
     <TextView
         android:id="@+id/calculator_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
+        android:maxLines="1"
         android:padding="@dimen/dimen_16"
-        tools:text="@string/dummy_result"
         android:textColor="@color/black"
         android:textSize="@dimen/text_h2"
-        app:layout_constraintBottom_toTopOf="@id/calculator_top_view" />
+        app:layout_constraintBottom_toTopOf="@id/calculator_top_view"
+        tools:text="@string/dummy_result" />
 
     <View
         android:id="@+id/calculator_top_view"
@@ -37,15 +38,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/currencies_btn"/>
+        app:layout_constraintTop_toTopOf="@id/currencies_btn" />
 
     <Button
         android:id="@+id/currencies_btn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/btn_height"
-        android:paddingTop="@dimen/dimen_10"
         android:layout_margin="@dimen/dimen_10"
         android:backgroundTint="@color/calculator_blue_dark"
+        android:paddingTop="@dimen/dimen_10"
         android:text="@string/currency_converter"
         app:layout_constraintBottom_toTopOf="@id/btn_one" />
 
@@ -65,8 +66,8 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"
-        android:text="@string/backspace"
         android:onClick="backspaceAction"
+        android:text="@string/backspace"
         app:layout_constraintBottom_toTopOf="@+id/btn_six"
         app:layout_constraintEnd_toStartOf="@id/btn_three"
         app:layout_constraintStart_toEndOf="@id/btn_one" />
@@ -89,9 +90,9 @@
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/x"
+        app:layout_constraintBottom_toTopOf="@id/btn_eight"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
-        app:layout_constraintStart_toEndOf="@id/btn_three"
-        app:layout_constraintBottom_toTopOf="@id/btn_eight" />
+        app:layout_constraintStart_toEndOf="@id/btn_three" />
 
     <Button
         android:id="@+id/btn_five"
@@ -132,9 +133,9 @@
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/divide"
+        app:layout_constraintBottom_toTopOf="@id/btn_twelve"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
-        app:layout_constraintStart_toEndOf="@id/btn_seven"
-        app:layout_constraintBottom_toTopOf="@id/btn_twelve" />
+        app:layout_constraintStart_toEndOf="@id/btn_seven" />
 
     <Button
         android:id="@+id/btn_nine"
@@ -175,9 +176,9 @@
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/minus"
+        app:layout_constraintBottom_toTopOf="@id/btn_sixteen"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
-        app:layout_constraintStart_toEndOf="@id/btn_eleven"
-        app:layout_constraintBottom_toTopOf="@id/btn_sixteen" />
+        app:layout_constraintStart_toEndOf="@id/btn_eleven" />
 
     <Button
         android:id="@+id/btn_thirteen"
@@ -218,9 +219,9 @@
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/plus"
+        app:layout_constraintBottom_toTopOf="@id/btn_twenty"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
-        app:layout_constraintStart_toEndOf="@id/btn_fifteen"
-        app:layout_constraintBottom_toTopOf="@id/btn_twenty" />
+        app:layout_constraintStart_toEndOf="@id/btn_fifteen" />
 
     <Button
         android:id="@+id/btn_seventeen"
@@ -228,9 +229,9 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
         android:text="@string/zero"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/btn_thirteen"
-        app:layout_constraintStart_toStartOf="@id/currencies_btn"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/currencies_btn" />
 
     <Button
         android:id="@+id/btn_eighteen"
@@ -239,9 +240,9 @@
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/dot"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/btn_fourteen"
-        app:layout_constraintStart_toEndOf="@id/btn_seventeen"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/btn_seventeen" />
 
     <Button
         android:id="@+id/btn_twenty"
@@ -250,8 +251,8 @@
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/equals"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
-        app:layout_constraintStart_toEndOf="@id/btn_eighteen"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/btn_eighteen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

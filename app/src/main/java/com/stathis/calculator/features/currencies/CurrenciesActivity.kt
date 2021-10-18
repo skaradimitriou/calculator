@@ -12,18 +12,15 @@ import kotlinx.android.synthetic.main.activity_currencies.*
 class CurrenciesActivity : SimplifiedActivity(R.layout.activity_currencies) {
 
     private lateinit var viewModel : CurrenciesViewModel
-    private var amount = 0
+    private var amount = 0.0
 
     override fun init() {
         viewModel = ViewModelProvider(this).get(CurrenciesViewModel::class.java)
     }
 
     override fun startOps() {
-        /*
-        FIXME: Create UI layout for Currencies screen according to zeplin screen
-         */
         val result = intent.getStringExtra("AMOUNT") ?: ""
-        result?.let { amount = it.toInt() }
+        result?.let { amount = it.toDouble() }
 
         Log.d("",amount.toString())
 
@@ -38,11 +35,18 @@ class CurrenciesActivity : SimplifiedActivity(R.layout.activity_currencies) {
         convert_btn.setOnClickListener {
             val currencyFrom = start_cur_value.text.toString()
             val currencyTo = end_cur_value.text.toString()
+            val amount = start_currency_value.text.toString()
 
-            viewModel.validateInput(currencyFrom,currencyTo)
+            viewModel.validateInput(currencyFrom,currencyTo,amount)
         }
 
-        viewModel.observe(this)
+        viewModel.data.observe(this, Observer {
+            ending_currency_value.text = it
+        })
+
+        viewModel.equation.observe(this, Observer {
+            convert_description.text = it
+        })
 
         viewModel.wrongInput.observe(this, Observer{
             when(it){

@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxBackgroundColor="@color/white"
-        android:hint="Select Currency"
+        android:hint="@string/select_currency"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="@dimen/dimen_10"
@@ -62,19 +62,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-<!--    <TextView-->
-<!--        android:id="@+id/starting_currency"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="@dimen/dimen_10"-->
-<!--        android:background="@drawable/round_corners"-->
-<!--        android:padding="@dimen/dimen_10"-->
-<!--        android:text="@string/eur"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/upper_card_bg"-->
-<!--        app:layout_constraintStart_toStartOf="@id/upper_card_bg"-->
-<!--        app:layout_constraintTop_toTopOf="@id/upper_card_bg" />-->
-
     <TextView
         android:id="@+id/start_currency_value"
         android:layout_width="0dp"
@@ -82,6 +69,7 @@
         android:layout_margin="@dimen/dimen_10"
         android:background="@drawable/round_corners"
         android:gravity="end"
+        android:maxLines="1"
         android:padding="@dimen/dimen_10"
         android:text="@string/dummy_result"
         android:textSize="20sp"
@@ -107,7 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxBackgroundColor="@color/white"
-        android:hint="Select Currency"
+        android:hint="@string/select_currency"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="@dimen/dimen_10"
@@ -123,19 +111,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-<!--    <TextView-->
-<!--        android:id="@+id/ending_currency"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="@dimen/dimen_10"-->
-<!--        android:background="@drawable/round_corners"-->
-<!--        android:padding="@dimen/dimen_10"-->
-<!--        android:text="@string/usd"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/second_card_bg"-->
-<!--        app:layout_constraintStart_toStartOf="@id/second_card_bg"-->
-<!--        app:layout_constraintTop_toTopOf="@id/second_card_bg" />-->
-
     <TextView
         android:id="@+id/ending_currency_value"
         android:layout_width="0dp"
@@ -144,7 +119,8 @@
         android:background="@drawable/round_corners"
         android:gravity="end"
         android:padding="@dimen/dimen_10"
-        android:text="@string/dummy_result"
+        tools:text="@string/dummy_result"
+        android:maxLines="1"
         android:textSize="20sp"
         android:textColor="@color/grey_darkest"
         app:layout_constraintBottom_toBottomOf="@id/second_card_bg"
@@ -171,7 +147,7 @@
         android:layout_marginTop="@dimen/dimen_10"
         android:textSize="20sp"
         android:textColor="@color/grey_darkest"
-        android:text="@string/dummy_equation"
+        tools:text="@string/dummy_equation"
         app:layout_constraintTop_toBottomOf="@id/convert_btn"/>
 
     <TextView
@@ -182,7 +158,7 @@
         android:paddingEnd="@dimen/dimen_10"
         android:textSize="20sp"
         android:textColor="@color/grey_darkest"
-        android:text="@string/dummy_eq_eur"
+        tools:text="@string/dummy_eq_eur"
         app:layout_constraintTop_toBottomOf="@id/convert_description"/>
 
     <TextView
@@ -193,7 +169,7 @@
         android:paddingEnd="@dimen/dimen_10"
         android:textSize="20sp"
         android:textColor="@color/grey_darkest"
-        android:text="@string/dummy_eq_usd"
+        tools:text="@string/dummy_eq_usd"
         app:layout_constraintTop_toBottomOf="@id/convert_start_currency"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
