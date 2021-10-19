@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxBackgroundColor="@color/white"
-        android:hint="@string/select_currency"
+        android:hint="@string/select_currency_from"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="@dimen/dimen_10"
@@ -62,13 +62,14 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <EditText
         android:id="@+id/start_currency_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_10"
         android:background="@drawable/round_corners"
         android:gravity="end"
+        android:inputType="numberDecimal"
         android:maxLines="1"
         android:padding="@dimen/dimen_10"
         android:text="@string/dummy_result"
@@ -146,6 +147,7 @@
         android:padding="@dimen/dimen_10"
         android:layout_marginTop="@dimen/dimen_10"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:textColor="@color/grey_darkest"
         tools:text="@string/dummy_equation"
         app:layout_constraintTop_toBottomOf="@id/convert_btn"/>

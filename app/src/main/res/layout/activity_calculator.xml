@@ -69,19 +69,9 @@
         android:onClick="backspaceAction"
         android:text="@string/backspace"
         app:layout_constraintBottom_toTopOf="@+id/btn_six"
-        app:layout_constraintEnd_toStartOf="@id/btn_three"
+        app:layout_constraintEnd_toEndOf="@id/btn_seven"
         app:layout_constraintStart_toEndOf="@id/btn_one" />
 
-    <Button
-        android:id="@+id/btn_three"
-        style="@style/calculator_btn"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_size"
-        android:layout_marginStart="@dimen/dimen_10"
-        android:text="@string/percent"
-        app:layout_constraintBottom_toTopOf="@+id/btn_seven"
-        app:layout_constraintEnd_toStartOf="@id/btn_four"
-        app:layout_constraintStart_toEndOf="@id/btn_two" />
 
     <Button
         android:id="@+id/btn_four"
@@ -92,7 +82,7 @@
         android:text="@string/x"
         app:layout_constraintBottom_toTopOf="@id/btn_eight"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
-        app:layout_constraintStart_toEndOf="@id/btn_three" />
+        app:layout_constraintStart_toEndOf="@id/btn_seven" />
 
     <Button
         android:id="@+id/btn_five"

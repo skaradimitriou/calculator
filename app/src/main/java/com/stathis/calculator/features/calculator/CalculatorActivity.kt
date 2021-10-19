@@ -1,7 +1,6 @@
 package com.stathis.calculator.features.calculator
 
 import android.content.Intent
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.lifecycle.Observer
@@ -23,15 +22,30 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
 
     override fun startOps() {
         currencies_btn.setOnClickListener {
-            val amount = calculator_result.text.toString()
-            startActivity(Intent(this, CurrenciesActivity::class.java).also {
-                it.putExtra("AMOUNT", amount)
-            })
+            val amount = when(calculator_result.text.toString().isNullOrEmpty()){
+                true -> "0.0"
+                else -> calculator_result.text.toString()
+            }
+
+            when(amount.isNullOrEmpty()) {
+                true -> notifyUser()
+                false -> goToCurrencyScreen(amount)
+            }
         }
 
         viewModel.result.observe(this, Observer {
             calculator_result.text = it
         })
+    }
+
+    private fun goToCurrencyScreen(amount : String) {
+        startActivity(Intent(this, CurrenciesActivity::class.java).also {
+            it.putExtra("AMOUNT", amount)
+        })
+    }
+
+    private fun notifyUser() {
+        //show snackbar
     }
 
     override fun stopOps() {
@@ -48,11 +62,11 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
             true -> {
                 if (view.text == ".") {
                     if (decimalEnabled) {
-                        calculator_operations.append(view.text)
+                        calculator_result.append(view.text)
                         decimalEnabled = false
                     }
                 } else {
-                    calculator_operations.append(view.text)
+                    calculator_result.append(view.text)
                 }
                 operationEnabled = true
             }
@@ -63,19 +77,17 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
         when (view is Button && operationEnabled) {
             true -> {
                 if(calculator_result.text.isNotEmpty()){
-                    calculator_operations.text = calculator_result.text
-                    calculator_result.text = ""
-                    calculator_operations.append(view.text)
+                    calculator_result.append(view.text)
                     operationEnabled = false
                     decimalEnabled = true
                 } else {
-                    when (calculator_operations.text.contains('X') ||
-                            calculator_operations.text.contains('/') ||
-                            calculator_operations.text.contains('-') ||
-                            calculator_operations.text.contains('+')) {
+                    when (calculator_result.text.contains('X') ||
+                            calculator_result.text.contains('/') ||
+                            calculator_result.text.contains('-') ||
+                            calculator_result.text.contains('+')) {
                         true -> Unit
                         false -> {
-                            calculator_operations.append(view.text)
+                            calculator_result.append(view.text)
                             operationEnabled = false
                             decimalEnabled = true
                         }
@@ -86,7 +98,9 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
     }
 
     fun equalsAction(view: View) {
-        val operations = calculator_operations.text.toString()
+        val operations = calculator_result.text.toString()
+        calculator_operations.text = operations
+        calculator_result.text = ""
         viewModel.calculateResults(operations)
     }
 

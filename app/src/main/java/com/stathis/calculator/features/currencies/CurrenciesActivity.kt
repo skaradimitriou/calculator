@@ -19,12 +19,13 @@ class CurrenciesActivity : SimplifiedActivity(R.layout.activity_currencies) {
     }
 
     override fun startOps() {
-        val result = intent.getStringExtra("AMOUNT") ?: ""
+        val result = intent.getStringExtra("AMOUNT") ?: "0.0"
+
         result?.let { amount = it.toDouble() }
 
         Log.d("",amount.toString())
 
-        start_currency_value.text = amount.toString()
+        start_currency_value.setText(amount.toString())
 
         val currencies = resources.getStringArray(R.array.currencies)
         val arrayAdapter = ArrayAdapter(this,R.layout.dropdown_item,currencies)
@@ -41,11 +42,19 @@ class CurrenciesActivity : SimplifiedActivity(R.layout.activity_currencies) {
         }
 
         viewModel.data.observe(this, Observer {
-            ending_currency_value.text = it
+            ending_currency_value.setText(it)
         })
 
         viewModel.equation.observe(this, Observer {
             convert_description.text = it
+        })
+
+        viewModel.firstEquation.observe(this,Observer{
+            convert_start_currency.text = it
+        })
+
+        viewModel.secondEquation.observe(this,Observer{
+            convert_end_currency.text = it
         })
 
         viewModel.wrongInput.observe(this, Observer{
@@ -58,6 +67,6 @@ class CurrenciesActivity : SimplifiedActivity(R.layout.activity_currencies) {
     }
 
     override fun stopOps() {
-        viewModel.release(this)
+
     }
 }

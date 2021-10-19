@@ -1,6 +1,5 @@
 package com.stathis.calculator.features.calculator
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -18,34 +17,17 @@ class CalculatorViewModel : ViewModel() {
                 val operation = commaExpression[commaExpression.size / 2]
                 val last = commaExpression.last().toString().toDouble()
 
-                when(operation){
-                    'X' -> multiply(first,last)
-                    '/' -> divide(first,last)
-                    '-' -> substract(first,last)
-                    '+' -> addNumbers(first,last)
+                var resultOperation = when(operation){
+                    'X' -> first / last
+                    '/' -> first / last
+                    '-' -> first - last
+                    '+' -> first + last
+                    else -> first
                 }
+
+                bindResult(resultOperation.toString())
             }
         }
-    }
-
-    private fun addNumbers(first: Double, last: Double) {
-        val operation = first + last
-        bindResult(operation.toString())
-    }
-
-    private fun substract(first: Double, last: Double) {
-        val operation = first - last
-        bindResult(operation.toString())
-    }
-
-    private fun divide(first: Double, last: Double) {
-        val operation = first / last
-        bindResult(operation.toString())
-    }
-
-    private fun multiply(first: Double, last: Double) {
-        val operation = first * last
-        bindResult(operation.toString())
     }
 
     private fun bindResult(operation: String) {
