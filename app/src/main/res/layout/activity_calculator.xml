@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/calculator_parent_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/calculator_bg"
@@ -9,17 +10,17 @@
 
     <TextView
         android:id="@+id/calculator_operations"
+        style="@style/calculator_operations_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/calculator_operations_style"
         app:layout_constraintBottom_toTopOf="@id/calculator_result"
         tools:text="@string/dummy_operation" />
 
     <TextView
         android:id="@+id/calculator_result"
+        style="@style/calculator_results_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/calculator_results_style"
         app:layout_constraintBottom_toTopOf="@id/calculator_top_view"
         tools:text="@string/dummy_result" />
 
@@ -47,6 +48,7 @@
         style="@style/calculator_ac_btn"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
+        android:onClick="allClearAction"
         android:text="@string/ac"
         app:layout_constraintBottom_toTopOf="@+id/btn_five"
         app:layout_constraintEnd_toStartOf="@id/btn_two"
@@ -217,6 +219,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
         android:layout_marginStart="@dimen/dimen_10"
+        android:onClick="numberAction"
         android:text="@string/dot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/btn_fourteen"

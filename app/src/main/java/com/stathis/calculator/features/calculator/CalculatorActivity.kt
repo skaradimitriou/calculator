@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Button
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.stathis.calculator.R
 import com.stathis.calculator.abstraction.SimplifiedActivity
 import com.stathis.calculator.features.currencies.CurrenciesActivity
@@ -45,7 +46,7 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
     }
 
     private fun notifyUser() {
-        //show snackbar
+        Snackbar.make(findViewById(R.id.calculator_parent_screen), resources.getString(R.string.enter_correct_amount), Snackbar.LENGTH_SHORT).show()
     }
 
     override fun stopOps() {
@@ -105,9 +106,9 @@ class CalculatorActivity : SimplifiedActivity(R.layout.activity_calculator) {
     }
 
     fun backspaceAction(view: View) {
-        when (calculator_operations.text.length) {
+        when (calculator_result.text.length) {
             0 -> Unit
-            else -> calculator_operations.text = calculator_operations.text.dropLast(1)
+            else -> calculator_result.text = calculator_result.text.dropLast(1)
         }
     }
 }

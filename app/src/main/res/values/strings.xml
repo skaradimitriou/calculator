@@ -31,6 +31,9 @@
     <string name="empty"/>
     <string name="select_currency">Select Currency To</string>
     <string name="select_currency_from">Select Currency From</string>
+    <string name="enter_correct_amount">Please enter a correct amount</string>
+    <string name="currencies_error_msg"><![CDATA[Please select currency from & currency to to convert your value]]></string>
+    <string name="api_error_msg">There was a problem with the data</string>
 
     <string-array name="currencies">
         <item>AED</item>
