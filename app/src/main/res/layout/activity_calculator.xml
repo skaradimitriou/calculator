@@ -11,10 +11,7 @@
         android:id="@+id/calculator_operations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end"
-        android:padding="@dimen/dimen_16"
-        android:singleLine="true"
-        android:textSize="@dimen/text_43"
+        style="@style/calculator_operations_style"
         app:layout_constraintBottom_toTopOf="@id/calculator_result"
         tools:text="@string/dummy_operation" />
 
@@ -22,11 +19,7 @@
         android:id="@+id/calculator_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end"
-        android:maxLines="1"
-        android:padding="@dimen/dimen_16"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_h2"
+        style="@style/calculator_results_style"
         app:layout_constraintBottom_toTopOf="@id/calculator_top_view"
         tools:text="@string/dummy_result" />
 
@@ -46,7 +39,6 @@
         android:layout_height="@dimen/btn_height"
         android:layout_margin="@dimen/dimen_10"
         android:backgroundTint="@color/calculator_blue_dark"
-        android:paddingTop="@dimen/dimen_10"
         android:text="@string/currency_converter"
         app:layout_constraintBottom_toTopOf="@id/btn_one" />
 
@@ -78,7 +70,6 @@
         style="@style/calculator_operation_btn"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
-        android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/x"
         app:layout_constraintBottom_toTopOf="@id/btn_eight"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
@@ -121,7 +112,6 @@
         style="@style/calculator_operation_btn"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
-        android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/divide"
         app:layout_constraintBottom_toTopOf="@id/btn_twelve"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
@@ -164,7 +154,6 @@
         style="@style/calculator_operation_btn"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
-        android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/minus"
         app:layout_constraintBottom_toTopOf="@id/btn_sixteen"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"
@@ -207,7 +196,6 @@
         style="@style/calculator_operation_btn"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_size"
-        android:layout_marginStart="@dimen/dimen_10"
         android:text="@string/plus"
         app:layout_constraintBottom_toTopOf="@id/btn_twenty"
         app:layout_constraintEnd_toEndOf="@id/currencies_btn"

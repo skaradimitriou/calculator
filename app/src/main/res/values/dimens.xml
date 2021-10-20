@@ -9,4 +9,5 @@
     <dimen name="button_size">65dp</dimen>
     <dimen name="dimen_25">25dp</dimen>
     <dimen name="card_bg">130dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
 </resources>
